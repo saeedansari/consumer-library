@@ -11,7 +11,10 @@
 
   <properties>
     <groovy.version>2.4.12</groovy.version>
+    <protobuf.version>3.5.1</protobuf.version>
     <spock.version>1.1-groovy-2.4</spock.version>
+    <spring.cloud.kinesis.version>1.0.0.M1</spring.cloud.kinesis.version>
+    <aws.sts.version>1.11.333</aws.sts.version>
   </properties>
 
   <parent>
@@ -26,14 +29,19 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-stream-kinesis</artifactId>
-      <version>1.0.0.BUILD-SNAPSHOT</version>
+      <version>${spring.cloud.kinesis.version}</version>
     </dependency>
 
-    <!-- check this -->
     <dependency>
       <groupId>com.amazonaws</groupId>
       <artifactId>aws-java-sdk-sts</artifactId>
-      <version>1.11.333</version>
+      <version>${aws.sts.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
     </dependency>
 
 
@@ -46,12 +54,6 @@
       <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <version>${groovy.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java</artifactId>
-      <version>3.5.1</version>
     </dependency>
 
     <dependency>
