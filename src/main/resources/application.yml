@@ -1,0 +1,12 @@
+cloud:
+  aws:
+    region:
+      static: us-east-1
+
+loyalty:
+  messaging:
+    url: kinesis.us-east-1.amazonaws.com
+    connection-timeout: 5000
+    retries: 1
+    streams:
+      lab_csi: channelA

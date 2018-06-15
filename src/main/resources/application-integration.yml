@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        eventOut:
+          destination: lab_csi
+          content-type: application/x-java-serialized-object
+          producer:
+            partitionKeyExpression: "1"
