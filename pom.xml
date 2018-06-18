@@ -26,6 +26,7 @@
         <protobuf.version>3.5.1</protobuf.version>
         <spock.version>1.1-groovy-2.4</spock.version>
         <spring.cloud.kinesis.version>1.0.0.M2</spring.cloud.kinesis.version>
+        <spring.integration.aws.version>2.0.0.M2</spring.integration.aws.version>
         <amazon.kinesis.client>1.9.1</amazon.kinesis.client>
         <aws.sts.version>1.11.333</aws.sts.version>
     </properties>
@@ -38,7 +39,7 @@
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-aws</artifactId>
-            <version>2.0.0.M1</version>
+            <version>${spring.integration.aws.version}</version>
         </dependency>
 
         <dependency>
@@ -55,13 +56,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-stream-binder-kinesis</artifactId>
-            <version>1.0.0.M1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>amazon-kinesis-client</artifactId>
-            <version>${amazon.kinesis.client}</version>
+            <version>${spring.cloud.kinesis.version}</version>
         </dependency>
 
         <dependency>
