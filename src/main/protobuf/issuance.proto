@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package datamodel;
+
+option java_package = "com.loyalty.issuance.journal.event";
+option java_outer_classname = "MilesIssuedProtos";
+
+message UUID {
+    sint64 mostSigBits = 1;
+    sint64 leastSigBits = 2;
+}
+
+message ClientData {
+    string type = 1;
+    string id = 2;
+    string referenceId = 3;
+}
+
+message ApiWarning {
+    string code = 1;
+    string message = 2;
+}
+
+enum TransactionType {
+    ISSUANCE = 0;
+    NEGATIVE_ISSUANCE = 1;
+}
+
+message MilesIssued {
+    TransactionType transactionType = 1;
+    UUID idempotencyId = 2;
+    UUID transactionId = 3;
+    string postingDate = 4;
+    string transactionDate = 5;
+    int64 memberId = 6;
+    string cardNumber = 7;
+    string issuerCode = 8;
+    string offerCode = 9;
+    string locationCode = 10;
+    int32 offerOccurrence = 11;
+    sint64 milesIssued = 12;
+    string providerCode = 13;
+    string paymentMethod = 14;
+    string paymentType = 15;
+    sint64 dollarAmount = 16;
+    ClientData clientData = 17;
+    repeated ApiWarning warnings = 18;
+}
