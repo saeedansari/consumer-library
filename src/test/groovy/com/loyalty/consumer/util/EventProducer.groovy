@@ -1,4 +1,5 @@
-package com.loyalty.consumer.producer
+package com.loyalty.consumer.util
+
 
 import com.loyalty.issuance.journal.event.MilesIssuedProtos
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,8 +16,9 @@ class EventProducer {
         this.producer = producer
     }
 
-    void produce(String event) {
-        producer.eventOut().send(new GenericMessage<String>(event))
+    void produce(MilesIssuedProtos.MilesIssued event) {
+        byte[] issuedBytes = event.toByteArray()
+        producer.eventOut().send(new GenericMessage<>(issuedBytes))
     }
 
 
