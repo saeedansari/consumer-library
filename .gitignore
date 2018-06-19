@@ -5,6 +5,7 @@
 /out/
 /target/
 .idea
+*.iml
 
 # Log file
 *.log
