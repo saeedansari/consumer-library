@@ -16,11 +16,9 @@ import org.springframework.integration.annotation.IntegrationComponentScan;
 import org.springframework.integration.aws.inbound.kinesis.KinesisMessageDrivenChannelAdapter;
 import org.springframework.integration.channel.QueueChannel;
 import org.springframework.integration.config.EnableIntegration;
-import org.springframework.integration.core.MessageProducer;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.router.HeaderValueRouter;
-import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.PollableChannel;
 
 @Configuration
@@ -60,9 +58,9 @@ public class KinesisConsumerConfiguration {
       AmazonKinesis amazonKinesis, String[] streamNames) {
     KinesisMessageDrivenChannelAdapter adapter =
         new KinesisMessageDrivenChannelAdapter(amazonKinesis, streamNames);
+    Converter<byte[], Object> stringConverter = bytes -> new String(bytes);
     adapter.setConverter(null);
     adapter.setOutputChannel(kinesisReceiveChannel());
-    adapter.setCheckpointStore();
     return adapter;
   }
 

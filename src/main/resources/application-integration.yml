@@ -3,17 +3,7 @@ spring:
     stream:
       bindings:
         eventOut:
-          destination: test-stream
-          content-type: application/json
+          destination: lab_csi
+          content-type: application/x-java-serialized-object
           producer:
             partitionKeyExpression: "1"
-            headerMode: none
-
-
-loyalty:
-  messaging:
-    url: http://localhost:4567
-    connection-timeout: 5000
-    retries: 1
-    streams:
-      test-stream: channelA

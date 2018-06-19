@@ -1,4 +1,4 @@
-package com.loyalty.consumer.util;
+package com.loyalty.consumer.producer;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
