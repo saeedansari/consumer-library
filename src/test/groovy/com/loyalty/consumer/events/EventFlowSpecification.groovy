@@ -2,7 +2,7 @@ package com.loyalty.consumer.events
 
 import com.loyalty.consumer.BaseTest
 import com.loyalty.consumer.util.EventConsumer
-import com.loyalty.consumer.util.EventProducer
+import com.loyalty.consumer.util.Publisher
 import com.loyalty.issuance.journal.event.MilesIssuedProtos
 import org.springframework.beans.factory.annotation.Autowired
 
@@ -10,7 +10,7 @@ class EventFlowSpecification extends BaseTest {
 
 
     @Autowired
-    EventProducer eventProducer
+    Publisher eventProducer
 
     @Autowired
     EventConsumer eventConsumer
@@ -20,6 +20,7 @@ class EventFlowSpecification extends BaseTest {
 
     def "Should receive published msg"() {
         given:
+            sleep(4000)
             MilesIssuedProtos.MilesIssued issuanceEvent = MilesIssuedProtos.MilesIssued.newBuilder()
                     .setMemberId(80000000021L)
                     .setCardNumber("80000000021")
