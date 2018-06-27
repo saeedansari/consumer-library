@@ -9,7 +9,6 @@ loyalty:
     name: consumer-client-library
     kinesis:
       url: http://localhost:4567
-      #url: kinesis.us-east-1.amazonaws.com
       connection-timeout: 5000
       retries: 0
       streams:
@@ -17,6 +16,5 @@ loyalty:
 
     dynamodb:
       url: http://localhost:3457
-      #url: dynamodb.us-east-1.amazonaws.com
       connection-timeout: 2000
       retries: 0

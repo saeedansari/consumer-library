@@ -7,15 +7,13 @@ loyalty:
   consumer:
     name: ${spring.application.name}
     kinesis:
-      url: http://localhost:4567
-      #url: kinesis.us-east-1.amazonaws.com
+      url: http://localhost:4567      
       connection-timeout: 5000
       retries: 1
       streams:
         lab-csi: channelA
 
     dynamodb:
-      url: http://localhost:3457/
-      #url: dynamodb.us-east-1.amazonaws.com
+      url: http://localhost:3457/      
       connection-timeout: 2000
       retries: 2
